@@ -10,7 +10,7 @@ public class SolderingController : MonoBehaviour
     private float _startX = 0, _startY = 0;
     public float minX, minY, stepX, stepY; 
     private float _offsetCoefficient = 1.1f;
-    public Cell[,] cells;
+    public SolderingCell[,] cells;
     public Bounds bounds;
     private int movableChips, chipsPlased;
 
@@ -41,7 +41,7 @@ public class SolderingController : MonoBehaviour
     void Start()
     {
         _instance = this;
-        cells = new Cell[height, width];
+        cells = new SolderingCell[height, width];
         _startX = fieldParent.transform.position.x - width * _offsetCoefficient * cellPrefab.transform.localScale.x / 2 + _offsetCoefficient * cellPrefab.transform.localScale.x;
         _startY = fieldParent.transform.position.y - height * _offsetCoefficient * cellPrefab.transform.localScale.y / 2 + _offsetCoefficient * cellPrefab.transform.localScale.y;
         GenerateField();
@@ -114,7 +114,7 @@ public class SolderingController : MonoBehaviour
                     _startY + (cellPrefab.transform.localScale.y) * i * _offsetCoefficient);
                 var cell = Instantiate(cellPrefab, fieldParent.transform, true);
                 cell.transform.position = pos;
-                cells[i, j] = new Cell(false, j, i, pos);
+                cells[i, j] = new SolderingCell(false, j, i, pos);
             }
         }
     }
