@@ -25,11 +25,13 @@ public class ManagePod : MonoBehaviour
     float speed = 30f;
 
     // box border exchange wirh collider
-    float minHeight = -5f;
+    float minHeight = -4f;
 
-    float maxWidth = 5f;
+    float maxWidth = 10f;
 
-    float minWidth = -5f;
+    float minWidth = -10f;
+
+    float maxHeight = 0f;
 
     void Start()
     {
@@ -42,31 +44,20 @@ public class ManagePod : MonoBehaviour
         point1 = target.transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Transform transf = gameObject.transform;
 
-        // Debug.Log(state);
         switch (state)
         {
             case "rotate":
-                transf
-                    .RotateAround(target.transform.position,
-                    new Vector3(0.0f, 0.0f, 1.0f),
-                    speed * Time.deltaTime);
+                transf.RotateAround(target.transform.position, new Vector3(0.0f, 0.0f, 1.0f), speed * Time.deltaTime);
 
                 // if right side end of the angles
-                if (
-                    transf.localEulerAngles.z >= 70 &&
-                    transf.localEulerAngles.z < 90
-                ) speed *= -1;
+                if (transf.localEulerAngles.z >= 70 && transf.localEulerAngles.z < 90) speed *= -1;
 
                 // if left side end of the angles
-                if (
-                    transf.localEulerAngles.z >= 270 &&
-                    transf.localEulerAngles.z < 290
-                ) speed *= -1;
+                if (transf.localEulerAngles.z >= 270 && transf.localEulerAngles.z < 290) speed *= -1;
 
                 point2 = gameObject.GetComponent<Renderer>().bounds.center;
                 lr.SetPositions(new Vector3[] { point1, point2 });
@@ -80,7 +71,7 @@ public class ManagePod : MonoBehaviour
 
                 delta = getDeltaVector3(point1, point2);
 
-                transf.position += delta * speed / 10 * Time.deltaTime;
+                transf.position += delta * Time.deltaTime * 4;
 
                 if (
                     transf.position.x > maxWidth ||
@@ -95,13 +86,12 @@ public class ManagePod : MonoBehaviour
 
                 delta = getDeltaVector3(point1, point2);
 
-                transf.position += delta * speed / 10 * Time.deltaTime * -1;
+                transf.position += delta * Time.deltaTime * -4;
 
                 //move boulder
                 if (pickedBoulder != null)
                 {
-                    pickedBoulder.transform.position +=
-                        delta * speed / 10 * Time.deltaTime;
+                    pickedBoulder.transform.position += delta * Time.deltaTime * -4;
                 }
 
                 // rewind till correct lenght
@@ -133,7 +123,7 @@ public class ManagePod : MonoBehaviour
     float distBetweenTwoPoints(Vector3 point1, Vector3 point2)
     {
         return (point2.x - point1.x) * (point2.x - point1.x) +
-        (point2.y - point1.y) * (point2.y - point1.y);
+                (point2.y - point1.y) * (point2.y - point1.y);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
