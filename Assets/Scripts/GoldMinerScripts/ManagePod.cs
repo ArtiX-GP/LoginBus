@@ -15,8 +15,14 @@ public class ManagePod : MonoBehaviour
 
     Vector3 point1;
 
+    Vector3 point2;
+
+    GameObject pickedBoulder;
+
+    public Vector3 delta = new Vector3(0, 0, 0);
+
     // contains sign for correct moving
-    float speed = 30;
+    float speed = 30f;
 
     // box border exchange wirh collider
     float minHeight = -5f;
@@ -28,6 +34,9 @@ public class ManagePod : MonoBehaviour
     void Start()
     {
         state = "rotate";
+        pickedBoulder = null;
+
+        gameObject.transform.position = new Vector3(0f, lineLenth, 0f);
 
         lr = GameObject.FindWithTag("Rope").GetComponent<LineRenderer>();
         point1 = target.transform.position;
@@ -36,13 +45,9 @@ public class ManagePod : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 point2;
-        float angle;
-        float deltaX;
-        float deltaY;
-        Vector3 delta;
         Transform transf = gameObject.transform;
 
+        // Debug.Log(state);
         switch (state)
         {
             case "rotate":
@@ -70,58 +75,72 @@ public class ManagePod : MonoBehaviour
 
                 break;
             case "shoot":
-                angle = transf.localEulerAngles.z;
-                angle *= Mathf.PI / 180f;
-
-                deltaX = Mathf.Cos(angle);
-                deltaY = Mathf.Sin(angle) * -1;
-
-                delta = new Vector3(deltaX, deltaY, 0f);
-
-                transf.Translate(delta * speed / 30 * Time.deltaTime);
-
                 point2 = gameObject.GetComponent<Renderer>().bounds.center;
-
                 lr.SetPositions(new Vector3[] { point1, point2 });
 
-                // if (
-                //     gameObject.transform.position.x > maxWidth ||
-                //     gameObject.transform.position.x < minWidth ||
-                //     gameObject.transform.position.y < minHeight
-                // )
-                // {
-                //     state = "rewind";
-                // }
+                delta = getDeltaVector3(point1, point2);
+
+                transf.position += delta * speed / 10 * Time.deltaTime;
+
+                if (
+                    transf.position.x > maxWidth ||
+                    transf.position.x < minWidth ||
+                    transf.position.y < minHeight
+                ) state = "rewind";
+
                 break;
-            // case "rewind": // rewinding the hook...
-            //     angle = transf.localEulerAngles.z;
-            //     angle *= Mathf.PI / 180f;
+            case "rewind": // rewinding the hook
+                point2 = gameObject.GetComponent<Renderer>().bounds.center;
+                lr.SetPositions(new Vector3[] { point1, point2 });
 
-            //     deltaX = Mathf.Cos(angle) * -1;
-            //     deltaY = Mathf.Sin(angle) ;
+                delta = getDeltaVector3(point1, point2);
 
-            //     delta = new Vector3(deltaX, deltaY, 0f);
+                transf.position += delta * speed / 10 * Time.deltaTime * -1;
 
-            //     transf.Translate(delta * speed / 30 * Time.deltaTime);
-            //     point2 = gameObject.GetComponent<Renderer>().bounds.center;
+                //move boulder
+                if (pickedBoulder != null)
+                {
+                    pickedBoulder.transform.position +=
+                        delta * speed / 10 * Time.deltaTime;
+                }
 
-            //     lr.SetPositions(new Vector3[] { point1, point2 });
+                // rewind till correct lenght
+                float curLineLenth = distBetweenTwoPoints(point1, point2);
 
-            //     // rewind till correct lenght
-            //     float curLineLenth =
-            //         (point2.x - point1.x) * (point2.x - point1.x) +
-            //         (point2.y - point1.y) * (point2.y - point1.y);
+                if (curLineLenth <= lineLenth * lineLenth)
+                {
+                    state = "rotate";
+                    if (pickedBoulder != null)
+                    {
+                        Destroy (pickedBoulder);
+                        pickedBoulder = null;
+                    }
+                }
 
-            //     if (curLineLenth <= lineLenth * lineLenth) state = "rotate";
-
-            //     // find correct boulder and move within
-            //     break;
+                break;
         }
     }
 
-    // void OnTriggerEnter2D(Collider2D collision)
-    // {
-    //     Debug.Log("collision" + collision.gameObject.name);
-    //     state = "rewind";
-    // }
+    Vector3 getDeltaVector3(Vector3 point1, Vector3 point2)
+    {
+        float c = Mathf.Sqrt(distBetweenTwoPoints(point1, point2));
+        float a = (point2.x - point1.x);
+        float b = (point2.y - point1.y);
+
+        return new Vector3(a / c, b / c, 0f);
+    }
+
+    float distBetweenTwoPoints(Vector3 point1, Vector3 point2)
+    {
+        return (point2.x - point1.x) * (point2.x - point1.x) +
+        (point2.y - point1.y) * (point2.y - point1.y);
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        state = "rewind";
+
+        string name = collider.gameObject.name;
+        pickedBoulder = GameObject.Find("Boulders/" + name);
+    }
 }

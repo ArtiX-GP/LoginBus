@@ -369,6 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1915205037}
   lineLenth: 2
+  delta: {x: 0, y: 0, z: 0}
 --- !u!212 &1227656082
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -493,7 +494,7 @@ GameObject:
   - component: {fileID: 1240065673}
   m_Layer: 0
   m_Name: Boulders
-  m_TagString: Untagged
+  m_TagString: Boulders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -510,7 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638c7b38f4a380641aa4e344d075c4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boulders_n: 0
+  boulders_n: 5
   BoulderPrefab: {fileID: 7702703705489359374, guid: 616afcd153abfea488bf953d549324ae, type: 3}
 --- !u!4 &1240065674
 Transform:
