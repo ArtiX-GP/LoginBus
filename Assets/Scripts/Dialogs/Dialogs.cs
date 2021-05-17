@@ -37,7 +37,7 @@ public class Dialogs : MonoBehaviour
     
     private void Awake()
     {
-        PlaySequnce(0);
+        //PlaySequnce(0);
     }
 
     /*
