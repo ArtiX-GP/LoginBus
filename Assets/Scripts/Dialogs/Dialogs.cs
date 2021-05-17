@@ -9,6 +9,32 @@ public class Dialogs : MonoBehaviour
     public DialogManager DialogManager;
     // Start is called before the first frame update
     private int num = 0;
+    
+    private static Dialogs _instance;
+
+    public static Dialogs Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<Dialogs>();
+                if (_instance == null)
+                {
+                    GameObject go = new GameObject("Dialogs");
+                    go.AddComponent<Dialogs>();
+                }
+            }
+
+            return _instance;
+        }
+    }
+
+    private void Start()
+    {
+        _instance = this;
+    }
+    
     private void Awake()
     {
         PlaySequnce(0);
