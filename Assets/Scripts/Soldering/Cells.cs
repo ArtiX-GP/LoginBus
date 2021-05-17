@@ -28,3 +28,9 @@ public class MazeCell: Cell
 {
     public MazeCell(bool isOccupied, int x, int y, Vector2 position) : base(isOccupied, x, y, position) { }
 }
+
+public class InventoryCell : Cell
+{
+    public Item item;
+    public InventoryCell(bool isOccupied, int x, int y, Vector2 position) : base(isOccupied, x, y, position) { }
+}
