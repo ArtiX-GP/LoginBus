@@ -28,7 +28,7 @@ public class Item: MonoBehaviour
             if (battery.OnClick())
             {
                EndDrag();
-               inventory.PlaceItem(this);
+               cellId =  inventory.PlaceItem(this);
             }
          }
          else
@@ -116,10 +116,7 @@ public class Item: MonoBehaviour
             EndDrag();
             inventory.PlaceItem(this, y);
             cellId = y;
-            foreach (var r in GetComponentsInChildren<SpriteRenderer>())
-            {
-               r.sortingOrder = 1;
-            }
+            
             //GetComponent<SpriteRenderer>().sortingOrder = 1;
          }
       }
@@ -127,7 +124,7 @@ public class Item: MonoBehaviour
 
    private void EndDrag()
    {
-      GetComponent<SpriteRenderer>().sortingOrder = 1;
+      //GetComponent<SpriteRenderer>().sortingOrder = 1;
       shouldDrag = false;
       StopCoroutine(dragCoroutine);
    }
