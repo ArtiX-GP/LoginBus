@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
@@ -39,6 +41,18 @@ public class PlayerController : MonoBehaviour
                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
             }
             isWatchingLeft = velocity.x < 0;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision) {
+        if (collision.tag == "MazeDecorationTilemap") {
+            Tilemap map = collision.GetComponentInParent<Tilemap>();
+            Vector3Int removePos = new Vector3Int((int)Math.Ceiling(transform.position.x), (int)Math.Ceiling(transform.position.y), 0);
+            MazeBlock block = MazeBuilder.GetSingleTon().GetBlockAt(removePos);
+            if (block != null && block is MB_DoorSwitch) {
+                Debug.Log("Activate");
+                ((MB_DoorSwitch)block).Activate();
+            }
         }
     }
 }
