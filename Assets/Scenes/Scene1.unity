@@ -1206,6 +1206,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &165343937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c6b15e8a7a8404fab1b489203eee17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textName: SONG 2
+  layer:
+  - {fileID: 8300000, guid: ae37e3fe51022482c848887d5f418461, type: 3}
+  layerNames:
+  - Layer 0
+  volumes:
+  - 1
+  loopCrossfadeBy: 0
+  layerCrossfadeBy: 1.5
+  loop: 1
+  layerResourceNames:
+  - 
 --- !u!1 &168800395
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,6 +2132,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &313339057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c6b15e8a7a8404fab1b489203eee17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textName: SONG 3
+  layer:
+  - {fileID: 8300000, guid: 06d917b2e9cc148a99e7bdeac71dd9b1, type: 3}
+  layerNames:
+  - Layer 0
+  volumes:
+  - 1
+  loopCrossfadeBy: 0
+  layerCrossfadeBy: 1.5
+  loop: 1
+  layerResourceNames:
+  - 
 --- !u!1 &328517139
 GameObject:
   m_ObjectHideFlags: 0
@@ -2570,6 +2618,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &419350882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c6b15e8a7a8404fab1b489203eee17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textName: SONG 4
+  layer:
+  - {fileID: 8300000, guid: 3b2996961d6844df3935b14ad1e5b48d, type: 3}
+  layerNames:
+  - Layer 0
+  volumes:
+  - 1
+  loopCrossfadeBy: 0
+  layerCrossfadeBy: 1.5
+  loop: 1
+  layerResourceNames:
+  - 
 --- !u!1 &420085124
 GameObject:
   m_ObjectHideFlags: 0
@@ -4956,6 +5028,60 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &896053946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 896053948}
+  - component: {fileID: 896053947}
+  m_Layer: 0
+  m_Name: Adaptive Music Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &896053947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896053946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0044b2a1fe8c73146950efed70f39ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songs:
+  - {fileID: 1703332581}
+  - {fileID: 2034782443}
+  - {fileID: 165343937}
+  - {fileID: 313339057}
+  - {fileID: 419350882}
+  - {fileID: 1128811755}
+  globalVolume: 0.5
+  globalCrossFadeTime: 3
+  players: []
+  resourceRequestMode: 0
+--- !u!4 &896053948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896053946}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &908981018
 GameObject:
   m_ObjectHideFlags: 0
@@ -6548,6 +6674,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1128811755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c6b15e8a7a8404fab1b489203eee17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textName: SONG 5
+  layer:
+  - {fileID: 8300000, guid: b4e4016fda0014fe3bf55b63b7c9e7d6, type: 3}
+  layerNames:
+  - Layer 0
+  volumes:
+  - 1
+  loopCrossfadeBy: 0
+  layerCrossfadeBy: 1.5
+  loop: 1
+  layerResourceNames:
+  - 
 --- !u!1 &1133864972
 GameObject:
   m_ObjectHideFlags: 0
@@ -10425,6 +10575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPlayer: {fileID: 808718996}
+  gA: {fileID: 896053947}
 --- !u!114 &1604654665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11167,6 +11318,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1703332581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c6b15e8a7a8404fab1b489203eee17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textName: Main menu
+  layer:
+  - {fileID: 8300000, guid: 91402f331ea884379bc43dcbaefe871c, type: 3}
+  layerNames:
+  - Layer 0
+  volumes:
+  - 1
+  loopCrossfadeBy: 7
+  layerCrossfadeBy: 3
+  loop: 1
+  layerResourceNames:
+  - 
 --- !u!1 &1709952419
 GameObject:
   m_ObjectHideFlags: 0
@@ -13754,6 +13929,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2034782443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c6b15e8a7a8404fab1b489203eee17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textName: SONG 1
+  layer:
+  - {fileID: 8300000, guid: 43e7e6e1cbcef4b0b83241f5cbc44ff7, type: 3}
+  layerNames:
+  - Layer 0
+  volumes:
+  - 1
+  loopCrossfadeBy: 0
+  layerCrossfadeBy: 1.5
+  loop: 1
+  layerResourceNames:
+  - 
 --- !u!1 &2039011879
 GameObject:
   m_ObjectHideFlags: 0
