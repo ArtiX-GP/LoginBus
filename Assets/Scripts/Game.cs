@@ -6,6 +6,8 @@ public class Game : MonoBehaviour
 {
     private static Game _instance;
     public GameObject currentPlayer;
+    public grumbleAMP gA;
+    private int activeSong, fadeInTime = 3;
     public static Game Instance
     {
         get
@@ -26,6 +28,7 @@ public class Game : MonoBehaviour
     void Start()
     {
         _instance = this;
+        gA.PlaySong (0,0, fadeInTime);
     }
 
 }
