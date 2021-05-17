@@ -8,6 +8,7 @@ TagManager:
   - Boulders
   - Chip
   - MazeCell
+  - MazeDecorationTilemap
   layers:
   - Default
   - TransparentFX
