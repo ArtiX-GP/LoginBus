@@ -23,7 +23,7 @@ public class Battery : MonoBehaviour
         
         var inventory = Inventory.Instance;
         var tool = inventory.currentItem;
-        inventory.PlaceItem(inventory.currentItem);
+        // inventory.PlaceItem(inventory.currentItem);
         switch (tool.itemId)
         {
             default:

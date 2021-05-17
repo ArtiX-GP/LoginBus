@@ -82,9 +82,9 @@ public class Inventory : MonoBehaviour
     public void RemoveItem(int cellId)
     {
         var cell = cells[cellId];
+        itemsList.Remove(cell.item);
         cell.isOccupied = false;
         cell.item = null;
-        itemsList.Remove(cell.item);
     }
     
     private Bounds CountBounds()
