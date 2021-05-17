@@ -13,11 +13,6 @@ public class TestMessage : MonoBehaviour
     {
         var dialogTexts = new List<DialogData>();
 
-        dialogTexts.Add(new DialogData("Бибика делает бибип.", "Zoyka"));
-        dialogTexts.Add(new DialogData("Купил я шляпу, а она мне как раз.", "Zypa"));
-        dialogTexts.Add(new DialogData("Я не Ибрагим.", "Robo"));
-        DialogManager.Show(dialogTexts);
-        return;
         dialogTexts.Add(new DialogData("I am Sa. Popped out to let you know Asset can show other characters.", "Sa"));
         
         dialogTexts.Add(new DialogData("This Asset, The D'Dialog System has many features.", "Li"));
