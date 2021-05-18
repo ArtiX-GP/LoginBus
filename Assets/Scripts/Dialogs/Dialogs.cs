@@ -57,7 +57,7 @@ public class Dialogs : MonoBehaviour
                 dialogTexts.Add(new DialogData("Свет моргает.", "Robo"));
                 dialogTexts.Add(new DialogData("Ибрагим, включи авто-диагностику светового канала.", "Zypa"));
                 dialogTexts.Add(new DialogData("Автодиагностика света недоступна.", "AI"));
-                dialogTexts.Add(new DialogData("Друзья, по-моему у нас проблемы.../wait:0.5/ я в машинном отделении и тут страшная жара.", "Krol", ()=>Next()));
+                dialogTexts.Add(new DialogData("Друзья, по-моему у нас проблемы... я в машинном отделении и тут страшная жара.", "Krol", ()=>Next()));
                 dialogTexts.Add(new DialogData("/speed:up/Режим атоматического контроля двигателей отключен!\nРежим автоматического контроля двигателей отключен!\nРежим савтоматического контроля двигателя отключен!", "AI"));
                 dialogTexts.Add(new DialogData("Самоуничтожение будет запущено через 2 часа 30 минут.\nСохраняйте спокойствие, это акт милосердия.\nМало кто хочет оказаться в открытом космосе.", "AI"));
                 dialogTexts.Add(new DialogData("Такой подставы от ИИ никто не ждал, конечно.", "Krol"));
