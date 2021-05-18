@@ -67,7 +67,6 @@ public class Item: MonoBehaviour
    
    IEnumerator Drag()
    {
-      GetComponent<SpriteRenderer>().sortingOrder = 25;
       while (shouldDrag)
       {
          yield return null;
@@ -127,6 +126,7 @@ public class Item: MonoBehaviour
       //GetComponent<SpriteRenderer>().sortingOrder = 1;
       shouldDrag = false;
       StopCoroutine(dragCoroutine);
+      
    }
    
 }
