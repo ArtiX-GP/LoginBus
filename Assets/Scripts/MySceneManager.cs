@@ -7,10 +7,13 @@ using UnityEngine.SceneManagement;
 public class MySceneManager : MonoBehaviour
 {
     public grumbleAMP gA;
+
     public GameObject dialogsObject;
 
     private static MySceneManager _instance;
+
     public GameObject mainGameCanvas;
+
     public static MySceneManager Instance
     {
         get
@@ -18,14 +21,14 @@ public class MySceneManager : MonoBehaviour
             return _instance;
         }
     }
-    
+
     private void Start()
     {
         _instance = this;
         DontDestroyOnLoad(transform.gameObject);
         DontDestroyOnLoad(gA.transform.gameObject);
-        DontDestroyOnLoad(dialogsObject);
-        DontDestroyOnLoad(mainGameCanvas);
+        DontDestroyOnLoad (dialogsObject);
+        DontDestroyOnLoad (mainGameCanvas);
         OpenMenu();
     }
 
@@ -51,18 +54,20 @@ public class MySceneManager : MonoBehaviour
     private IEnumerator OpenFishing()
     {
         AsyncOperation async;
-        async = SceneManager.LoadSceneAsync("Scenes/GoldMiner", LoadSceneMode.Additive);
+        async =
+            SceneManager
+                .LoadSceneAsync("Scenes/GoldMiner", LoadSceneMode.Additive);
         while (!async.isDone)
         {
             yield return null;
         }
         Debug.Log(async.isDone);
         Scene activeScene = SceneManager.GetActiveScene();
-        SceneManager.UnloadScene( activeScene.buildIndex );
+        SceneManager.UnloadScene(activeScene.buildIndex);
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("GoldMiner"));
         gA.CrossFadeToNewSong(2, 0, 1);
     }
-    
+
     public void OpenSolderingGame()
     {
         StartCoroutine(OpenSoldering());
@@ -71,14 +76,16 @@ public class MySceneManager : MonoBehaviour
     private IEnumerator OpenSoldering()
     {
         AsyncOperation async;
-        async = SceneManager.LoadSceneAsync("Scenes/Soldering", LoadSceneMode.Additive);
+        async =
+            SceneManager
+                .LoadSceneAsync("Scenes/Soldering", LoadSceneMode.Additive);
         while (!async.isDone)
         {
             yield return null;
         }
         Debug.Log(async.isDone);
         Scene activeScene = SceneManager.GetActiveScene();
-        SceneManager.UnloadScene( activeScene.buildIndex );
+        SceneManager.UnloadScene(activeScene.buildIndex);
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Soldering"));
         gA.CrossFadeToNewSong(2, 0, 1);
     }
