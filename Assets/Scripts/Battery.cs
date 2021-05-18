@@ -37,6 +37,6 @@ public class Battery : MonoBehaviour
     
     private bool CloseEnough()
     {
-        return Vector2.Distance(transform.root.position, Game.Instance.currentPlayer.transform.position) <= 1;
+        return Vector2.Distance(transform.root.position, Game.Instance.currentPlayer.transform.position) <= 2.5f;
     }
 }

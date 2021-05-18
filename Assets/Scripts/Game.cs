@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,7 +29,10 @@ public class Game : MonoBehaviour
     void Start()
     {
         _instance = this;
-        gA.PlaySong (0,0, fadeInTime);
     }
 
+    private void Update()
+    {
+        currentPlayer = PlayerPossesser.singleTon.followController.player.gameObject;
+    }
 }

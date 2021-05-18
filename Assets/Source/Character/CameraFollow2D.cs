@@ -6,7 +6,7 @@ public class CameraFollow2D : MonoBehaviour {
 	public float damping = 1.5f;
 	public Vector2 offset = new Vector2(2f, 1f);
 	public bool faceLeft;
-	private Transform player;
+	public Transform player;
 	private int lastX;
 	public Transform firstPlayer;
 
@@ -17,7 +17,7 @@ public class CameraFollow2D : MonoBehaviour {
 
 	public void FindPlayer(bool playerFaceLeft)
 	{
-		player = GameObject.FindGameObjectWithTag("Player").transform;
+		player = firstPlayer; //GameObject.FindGameObjectWithTag("Player").transform;
 		lastX = Mathf.RoundToInt(player.position.x);
 		if (playerFaceLeft) {
 			transform.position = new Vector3(player.position.x - offset.x, player.position.y + offset.y, transform.position.z);
