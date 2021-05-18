@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
     guid: 346aef7be6255ad4bbb87645572c80ab
   - enabled: 1
+    path: Assets/Scenes/Soldering.unity
+    guid: 342100ea4b59041cf857d9db6f598665
+  - enabled: 0
     path: Assets/Scenes/Scene1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
