@@ -9,15 +9,16 @@ public interface GameStateListener {
 public class GameState
 {
 
-    private static readonly Dictionary<string, GameStateListener> LISTENERS = new Dictionary<string, GameStateListener>();
+    private static readonly Dictionary<string, List<GameStateListener>> LISTENERS = new Dictionary<string, List<GameStateListener>>();
 
     private static readonly Dictionary<string, dynamic> GAME_DATA = new Dictionary<string, dynamic>();
 
     public static void AddListener(string key, GameStateListener l) {
         if (l != null && key != null && key.Trim() != "") {
             if (!LISTENERS.ContainsKey(key)) {
-                LISTENERS.Add(key, l);
+                LISTENERS.Add(key, new List<GameStateListener>());
             }
+            LISTENERS[key].Add(l);
         }
     }
 
@@ -45,8 +46,10 @@ public class GameState
             GAME_DATA.Add(key, value);
         }
 
-        foreach (GameStateListener l in LISTENERS.Values) {
-            l.onGameStateUpdated();
+        foreach (List<GameStateListener> list in LISTENERS.Values) {
+            foreach (GameStateListener l in list) {
+                l.onGameStateUpdated();
+            }
         }
     }
 

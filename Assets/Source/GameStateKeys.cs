@@ -11,4 +11,6 @@ public class GameStateKeys
     public const string BASEMENT_YELLOW_DOOR = "BASEMENT_YELLOW_DOOR";
     public const string BASEMENT_RED_DOOR = "BASEMENT_RED_DOOR";
     public const string BASEMENT_GREEN_DOOR = "BASEMENT_GREEN_DOOR";
+
+    public const string MACHINE_PLATFORM_ROTATED = "MACHINE_PLATFORM_ROTATED";
 }
