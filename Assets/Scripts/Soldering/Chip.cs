@@ -195,7 +195,7 @@ public class Chip : MonoBehaviour
 
         foreach (var r in GetComponentsInChildren<SpriteRenderer>())
         {
-            r.sortingOrder = 10;
+            r.sortingOrder = 11;
         }
         GetComponent<SpriteRenderer>().sortingOrder = 10;
         transform.root.position = Camera.main.ScreenToWorldPoint (Input.mousePosition) + handleToOriginVector;
@@ -231,7 +231,7 @@ public class Chip : MonoBehaviour
                 cell.chip = this;
                 foreach (var r in GetComponentsInChildren<SpriteRenderer>())
                 {
-                    r.sortingOrder = 1;
+                    r.sortingOrder = 2;
                 }
                 GetComponent<SpriteRenderer>().sortingOrder = 1;
                 controller.OnChipPlaced();

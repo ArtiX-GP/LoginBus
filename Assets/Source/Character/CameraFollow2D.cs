@@ -35,7 +35,7 @@ public class CameraFollow2D : MonoBehaviour {
 	}
 
 	void Update() {
-		if (player) {
+		if (player && player.gameObject.GetComponent<PlayerController>().isMoving) {
 			int currentX = Mathf.RoundToInt(player.position.x);
 			if (currentX > lastX) faceLeft = false; else if (currentX < lastX) faceLeft = true;
 			lastX = Mathf.RoundToInt(player.position.x);
