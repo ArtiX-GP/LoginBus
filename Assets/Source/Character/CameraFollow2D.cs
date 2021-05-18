@@ -8,13 +8,15 @@ public class CameraFollow2D : MonoBehaviour {
 	public bool faceLeft;
 	private Transform player;
 	private int lastX;
+	public Transform firstPlayer;
 
 	void Start() {
 		offset = new Vector2(Mathf.Abs(offset.x), offset.y);
 		FindPlayer(faceLeft);
 	}
 
-	public void FindPlayer(bool playerFaceLeft) {
+	public void FindPlayer(bool playerFaceLeft)
+	{
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		lastX = Mathf.RoundToInt(player.position.x);
 		if (playerFaceLeft) {
