@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision.tag == "MazeDecorationTilemap") {
             Tilemap map = collision.GetComponentInParent<Tilemap>();
-            Vector3Int removePos = new Vector3Int((int)Math.Ceiling(transform.position.x), (int)Math.Ceiling(transform.position.y), 0);
+            Vector3Int removePos = new Vector3Int((int)Math.Ceiling(transform.position.x) - (int)Math.Ceiling(map.transform.position.x), (int)Math.Ceiling(transform.position.y) + (int)Math.Ceiling(map.transform.position.y), 0);
             MazeBlock block = MazeBuilder.GetSingleTon().GetBlockAt(removePos);
             if (block != null && block is MB_DoorSwitch) {
                 Debug.Log("Activate");

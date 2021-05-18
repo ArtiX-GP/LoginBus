@@ -209,9 +209,12 @@ public class MazeBuilder : MonoBehaviour, GameStateListener {
     }
 
     public MazeBlock GetBlockAt(Vector3Int pos) {
-        int row = (SampleMap.W - pos.y + 1) - pivot.y;
-        int col = (pos.x - 1) + pivot.x;
+        int row = ((SampleMap.W - pos.y + 1) - pivot.y) % SampleMap.W;
+        int col = ((pos.x - 1) + pivot.x) % SampleMap.H;
         try {
+            Debug.Log(pos);
+            Debug.Log(row);
+            Debug.Log(col);
             return map[row, col];
         } catch (Exception e) {
             return null;

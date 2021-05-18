@@ -24,6 +24,16 @@ public class CameraFollow2D : MonoBehaviour {
 		}
 	}
 
+	public void SetPlayer(Transform p) {
+		player = p;
+		lastX = Mathf.RoundToInt(player.position.x);
+		if (faceLeft) {
+			transform.position = new Vector3(player.position.x - offset.x, player.position.y + offset.y, transform.position.z);
+		} else {
+			transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, transform.position.z);
+		}
+	}
+
 	void Update() {
 		if (player) {
 			int currentX = Mathf.RoundToInt(player.position.x);
