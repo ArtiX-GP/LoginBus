@@ -11,7 +11,7 @@ public class ManagePod : MonoBehaviour
 
     LineRenderer lr;
 
-    public float lineLenth = 2f;
+    public float lineLenth = 50f;
 
     Vector3 point1;
 
