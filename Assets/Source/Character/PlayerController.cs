@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
 
     private bool isWatchingLeft;
 
+    public bool isMoving;
+
+    private int notMovingFrames;
     //private Transform transform;
 
     // Start is called before the first frame update
@@ -24,6 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        notMovingFrames = 0;
         //transform = GetComponent<Transform>();
     }
 
@@ -31,6 +35,17 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * speed;
+        if (velocity == Vector2.zero)
+        {
+            notMovingFrames += 1;
+            if (notMovingFrames >= 100)
+                isMoving = false;
+        }
+        else
+        {
+            notMovingFrames = 0;
+            isMoving = true;
+        }
         animator.SetBool(Animator.StringToHash("IsRunning"), velocity.magnitude > 0);
     }
 

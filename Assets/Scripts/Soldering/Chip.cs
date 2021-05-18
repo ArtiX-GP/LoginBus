@@ -160,6 +160,7 @@ public class Chip : MonoBehaviour {
             cellY = -1;
         }
 
+
         foreach (var r in GetComponentsInChildren<SpriteRenderer>()) {
             r.sortingOrder = 11;
         }
@@ -192,6 +193,7 @@ public class Chip : MonoBehaviour {
                 cellY = y;
                 cell.isOccupied = true;
                 cell.chip = this;
+
                 foreach (var r in GetComponentsInChildren<SpriteRenderer>()) {
                     r.sortingOrder = 2;
                 }
