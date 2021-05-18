@@ -11,7 +11,7 @@ public class ManagePod : MonoBehaviour
 
     LineRenderer lr;
 
-    public float lineLenth = 2f;
+    public float lineLenth;
 
     Vector3 point1;
 
@@ -19,26 +19,26 @@ public class ManagePod : MonoBehaviour
 
     GameObject pickedBoulder;
 
-    public Vector3 delta = new Vector3(0, 0, 0);
+    Vector3 delta = new Vector3(0, 0, 0);
 
     // contains sign for correct moving
     float speed = 30f;
 
     // box border exchange wirh collider
-    float minHeight = -4f;
+    float minHeight = -5f;
 
     float maxWidth = 10f;
 
     float minWidth = -10f;
 
-    float maxHeight = 0f;
+    float maxHeight = -2f;
 
     void Start()
     {
         state = "rotate";
         pickedBoulder = null;
 
-        gameObject.transform.position = new Vector3(0f, lineLenth, 0f);
+        gameObject.transform.position = new Vector3(0f, target.transform.position.y-lineLenth, 0f);
 
         lr = GameObject.FindWithTag("Rope").GetComponent<LineRenderer>();
         point1 = target.transform.position;
