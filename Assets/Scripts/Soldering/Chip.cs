@@ -102,7 +102,7 @@ public class Chip : MonoBehaviour
                 cellY = startY;
                 cell.isOccupied = true;
                 cell.chip = this;
-                GetComponent<SpriteRenderer>().sortingOrder = 1;
+                //GetComponent<SpriteRenderer>().sortingOrder = 1;
             }
         };
     }
@@ -195,9 +195,9 @@ public class Chip : MonoBehaviour
 
         foreach (var r in GetComponentsInChildren<SpriteRenderer>())
         {
-            r.sortingOrder = 10;
+            //r.sortingOrder = 10;
         }
-        GetComponent<SpriteRenderer>().sortingOrder = 10;
+        //GetComponent<SpriteRenderer>().sortingOrder = 10;
         transform.root.position = Camera.main.ScreenToWorldPoint (Input.mousePosition) + handleToOriginVector;
     }
  
@@ -231,9 +231,9 @@ public class Chip : MonoBehaviour
                 cell.chip = this;
                 foreach (var r in GetComponentsInChildren<SpriteRenderer>())
                 {
-                    r.sortingOrder = 1;
+                    //r.sortingOrder = 1;
                 }
-                GetComponent<SpriteRenderer>().sortingOrder = 1;
+                //GetComponent<SpriteRenderer>().sortingOrder = 1;
                 controller.OnChipPlaced();
                 LightPoints(Color.green);
             }
