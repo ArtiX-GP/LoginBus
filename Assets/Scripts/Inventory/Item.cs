@@ -43,7 +43,7 @@ public class Item: MonoBehaviour
             Debug.Log("Да это же " + name);
             return;
          }
-         handleToOriginVector = transform.root.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+         handleToOriginVector = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
          isDragging = true;
          if (!itemInInventory)
             cellId = inventory.PlaceItem(this);
@@ -61,7 +61,7 @@ public class Item: MonoBehaviour
 
    private bool CloseEnough()
    {
-      var dist = Vector2.Distance(transform.root.position, Game.Instance.currentPlayer.transform.position);
+      var dist = Vector2.Distance(transform.position, Game.Instance.currentPlayer.transform.position);
       return dist <= 1;
    }
    
@@ -70,7 +70,7 @@ public class Item: MonoBehaviour
       while (shouldDrag)
       {
          yield return null;
-         transform.root.position = Camera.main.ScreenToWorldPoint (Input.mousePosition) + handleToOriginVector;
+         transform.position = Camera.main.ScreenToWorldPoint (Input.mousePosition) + handleToOriginVector;
       }
       Debug.Log("end dragging");
    }
@@ -94,7 +94,7 @@ public class Item: MonoBehaviour
    {
       var inventory = Inventory.Instance;
       isDragging = false;
-      var pos = transform.root.position;
+      var pos = transform.position;
       int x = Mathf.RoundToInt((pos.x - inventory.minX) / inventory.stepX);
       int y = Mathf.RoundToInt((pos.y - inventory.minY) / inventory.stepY);
       if (x == inventory.width)

@@ -73,7 +73,8 @@ public class Inventory : MonoBehaviour
         if (cellId < 0)
             cellId = findEmptyCell();
 //        Debug.Log("Place on " + cellId);
-        item.gameObject.transform.position = cells[cellId].position;
+        item.gameObject.transform.parent = transform;
+        item.gameObject.transform.localPosition = cellObjects[cellId].transform.localPosition;
         cells[cellId].isOccupied = true;
         cells[cellId].item = item;
         return cellId;
